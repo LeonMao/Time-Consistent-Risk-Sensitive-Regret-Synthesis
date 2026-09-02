@@ -1,0 +1,9 @@
+family,m,method,worlds,agent_states_median,observation_branches_median,value_state_budgets_median,pruned_actions_median,oracle_calls_median,oracle_nodes_median
+hub,8,factored,256,274,297,33,0,68,129
+hub,8,explicit,256,274,297,33,0,256,256
+hub,10,factored,1024,422,451,41,0,122,233
+hub,10,explicit,1024,422,451,41,0,1024,1024
+layered,8,factored,256,341,382,239,0,246,790
+layered,8,explicit,256,341,382,239,0,256,256
+layered,10,factored,1024,1037,1174,717,0,1024,4087
+layered,10,explicit,1024,1037,1174,717,0,1024,1024

@@ -1,0 +1,8 @@
+# Direct research dependencies. Transitive dependencies are locked in uv.lock.
+# Python interpreter: CPython 3.13.5 (see .python-version and pyproject.toml).
+numpy==2.3.5
+scipy==1.17.0
+psutil==7.2.2
+pandas==3.0.1
+matplotlib==3.11.1
+Pillow==12.3.0

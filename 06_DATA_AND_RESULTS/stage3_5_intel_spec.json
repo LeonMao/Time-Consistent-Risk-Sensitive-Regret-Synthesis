@@ -1,0 +1,1074 @@
+{
+  "schema": "stage3_5_intel_benchmark_spec_v1",
+  "benchmark": {
+    "name": "intel_map_scLTL",
+    "description": "Schematic topological abstraction derived from the public Intel Research Lab occupancy-map geometry.",
+    "source_builder": "03_EXPERIMENT_AND_BENCHMARK_CODE/stage3_3_intel_lab_benchmark.py",
+    "physical_start_state": "s",
+    "node_count": 15,
+    "uncertain_variable_count": 5,
+    "supported_world_count": 32
+  },
+  "coordinate_system": {
+    "status": "schematic_map_coordinates",
+    "physical_units": "none",
+    "interpretation": "Coordinates preserve topological layout and set metric-like synthetic costs; they are not map meters or measured travel times."
+  },
+  "cost_model": {
+    "status": "synthetic_geometric_with_manual_calibration",
+    "known_corridor_or_room": "2.0 * euclidean_coordinate_distance",
+    "probe_approach_and_closed_return": "1.1 * euclidean_coordinate_distance",
+    "open_only_shortcut": "2.3 * euclidean_coordinate_distance",
+    "manual_overrides": [
+      {
+        "source": "s",
+        "target": "d0",
+        "cost": 1.2
+      },
+      {
+        "source": "d0",
+        "target": "s",
+        "cost": 1.2
+      },
+      {
+        "source": "d0",
+        "target": "lm",
+        "cost": 3.0
+      }
+    ],
+    "interpretation": "All costs are dimensionless synthetic map-coordinate weights. The d0 calibration exposes the intended exploration/tail-risk trade-off."
+  },
+  "nodes": [
+    {
+      "name": "s",
+      "coordinate": [
+        2.8,
+        0.5
+      ],
+      "atomic_propositions": []
+    },
+    {
+      "name": "bl",
+      "coordinate": [
+        1.2,
+        0.8
+      ],
+      "atomic_propositions": []
+    },
+    {
+      "name": "lm",
+      "coordinate": [
+        0.8,
+        2.4
+      ],
+      "atomic_propositions": []
+    },
+    {
+      "name": "lt",
+      "coordinate": [
+        1.0,
+        4.2
+      ],
+      "atomic_propositions": []
+    },
+    {
+      "name": "tm",
+      "coordinate": [
+        3.0,
+        4.7
+      ],
+      "atomic_propositions": []
+    },
+    {
+      "name": "tr",
+      "coordinate": [
+        5.0,
+        4.4
+      ],
+      "atomic_propositions": []
+    },
+    {
+      "name": "rm",
+      "coordinate": [
+        5.6,
+        2.7
+      ],
+      "atomic_propositions": []
+    },
+    {
+      "name": "br",
+      "coordinate": [
+        5.2,
+        0.9
+      ],
+      "atomic_propositions": []
+    },
+    {
+      "name": "ext",
+      "coordinate": [
+        0.15,
+        2.6
+      ],
+      "atomic_propositions": [
+        "extinguisher"
+      ]
+    },
+    {
+      "name": "fire",
+      "coordinate": [
+        6.35,
+        2.7
+      ],
+      "atomic_propositions": [
+        "fire"
+      ]
+    },
+    {
+      "name": "d0",
+      "coordinate": [
+        1.8,
+        1.55
+      ],
+      "atomic_propositions": []
+    },
+    {
+      "name": "d1",
+      "coordinate": [
+        1.85,
+        3.7
+      ],
+      "atomic_propositions": []
+    },
+    {
+      "name": "d2",
+      "coordinate": [
+        4.15,
+        3.75
+      ],
+      "atomic_propositions": []
+    },
+    {
+      "name": "d3",
+      "coordinate": [
+        4.25,
+        1.55
+      ],
+      "atomic_propositions": []
+    },
+    {
+      "name": "d4",
+      "coordinate": [
+        3.25,
+        2.7
+      ],
+      "atomic_propositions": []
+    }
+  ],
+  "known_undirected_corridor_or_room_edges": [
+    [
+      "s",
+      "bl"
+    ],
+    [
+      "s",
+      "br"
+    ],
+    [
+      "bl",
+      "lm"
+    ],
+    [
+      "lm",
+      "lt"
+    ],
+    [
+      "lm",
+      "ext"
+    ],
+    [
+      "lt",
+      "tm"
+    ],
+    [
+      "tm",
+      "tr"
+    ],
+    [
+      "tr",
+      "rm"
+    ],
+    [
+      "rm",
+      "br"
+    ],
+    [
+      "rm",
+      "fire"
+    ]
+  ],
+  "directed_weighted_edges": [
+    {
+      "source": "s",
+      "target": "bl",
+      "edge_class": "known_corridor_or_room",
+      "cost": 3.255764119219941,
+      "default_formula": "2.0 * euclidean_coordinate_distance",
+      "default_formula_cost": 3.255764119219941,
+      "manual_override": false
+    },
+    {
+      "source": "s",
+      "target": "br",
+      "edge_class": "known_corridor_or_room",
+      "cost": 4.866210024238576,
+      "default_formula": "2.0 * euclidean_coordinate_distance",
+      "default_formula_cost": 4.866210024238576,
+      "manual_override": false
+    },
+    {
+      "source": "s",
+      "target": "d0",
+      "edge_class": "known_probe_approach",
+      "cost": 1.2,
+      "default_formula": "1.1 * euclidean_coordinate_distance",
+      "default_formula_cost": 1.595,
+      "manual_override": true
+    },
+    {
+      "source": "s",
+      "target": "d3",
+      "edge_class": "known_probe_approach",
+      "cost": 1.9692765168964974,
+      "default_formula": "1.1 * euclidean_coordinate_distance",
+      "default_formula_cost": 1.9692765168964974,
+      "manual_override": false
+    },
+    {
+      "source": "bl",
+      "target": "s",
+      "edge_class": "known_corridor_or_room",
+      "cost": 3.255764119219941,
+      "default_formula": "2.0 * euclidean_coordinate_distance",
+      "default_formula_cost": 3.255764119219941,
+      "manual_override": false
+    },
+    {
+      "source": "bl",
+      "target": "lm",
+      "edge_class": "known_corridor_or_room",
+      "cost": 3.298484500494128,
+      "default_formula": "2.0 * euclidean_coordinate_distance",
+      "default_formula_cost": 3.298484500494128,
+      "manual_override": false
+    },
+    {
+      "source": "lm",
+      "target": "bl",
+      "edge_class": "known_corridor_or_room",
+      "cost": 3.298484500494128,
+      "default_formula": "2.0 * euclidean_coordinate_distance",
+      "default_formula_cost": 3.298484500494128,
+      "manual_override": false
+    },
+    {
+      "source": "lm",
+      "target": "lt",
+      "edge_class": "known_corridor_or_room",
+      "cost": 3.6221540552549674,
+      "default_formula": "2.0 * euclidean_coordinate_distance",
+      "default_formula_cost": 3.6221540552549674,
+      "manual_override": false
+    },
+    {
+      "source": "lm",
+      "target": "ext",
+      "edge_class": "known_corridor_or_room",
+      "cost": 1.3601470508735445,
+      "default_formula": "2.0 * euclidean_coordinate_distance",
+      "default_formula_cost": 1.3601470508735445,
+      "manual_override": false
+    },
+    {
+      "source": "lm",
+      "target": "d1",
+      "edge_class": "known_probe_approach",
+      "cost": 1.8381852463775246,
+      "default_formula": "1.1 * euclidean_coordinate_distance",
+      "default_formula_cost": 1.8381852463775246,
+      "manual_override": false
+    },
+    {
+      "source": "lt",
+      "target": "lm",
+      "edge_class": "known_corridor_or_room",
+      "cost": 3.6221540552549674,
+      "default_formula": "2.0 * euclidean_coordinate_distance",
+      "default_formula_cost": 3.6221540552549674,
+      "manual_override": false
+    },
+    {
+      "source": "lt",
+      "target": "tm",
+      "edge_class": "known_corridor_or_room",
+      "cost": 4.123105625617661,
+      "default_formula": "2.0 * euclidean_coordinate_distance",
+      "default_formula_cost": 4.123105625617661,
+      "manual_override": false
+    },
+    {
+      "source": "lt",
+      "target": "d4",
+      "edge_class": "known_probe_approach",
+      "cost": 2.9745798022577916,
+      "default_formula": "1.1 * euclidean_coordinate_distance",
+      "default_formula_cost": 2.9745798022577916,
+      "manual_override": false
+    },
+    {
+      "source": "tm",
+      "target": "lt",
+      "edge_class": "known_corridor_or_room",
+      "cost": 4.123105625617661,
+      "default_formula": "2.0 * euclidean_coordinate_distance",
+      "default_formula_cost": 4.123105625617661,
+      "manual_override": false
+    },
+    {
+      "source": "tm",
+      "target": "tr",
+      "edge_class": "known_corridor_or_room",
+      "cost": 4.044749683231337,
+      "default_formula": "2.0 * euclidean_coordinate_distance",
+      "default_formula_cost": 4.044749683231337,
+      "manual_override": false
+    },
+    {
+      "source": "tm",
+      "target": "d2",
+      "edge_class": "known_probe_approach",
+      "cost": 1.6408077279193933,
+      "default_formula": "1.1 * euclidean_coordinate_distance",
+      "default_formula_cost": 1.6408077279193933,
+      "manual_override": false
+    },
+    {
+      "source": "tr",
+      "target": "tm",
+      "edge_class": "known_corridor_or_room",
+      "cost": 4.044749683231337,
+      "default_formula": "2.0 * euclidean_coordinate_distance",
+      "default_formula_cost": 4.044749683231337,
+      "manual_override": false
+    },
+    {
+      "source": "tr",
+      "target": "rm",
+      "edge_class": "known_corridor_or_room",
+      "cost": 3.6055512754639896,
+      "default_formula": "2.0 * euclidean_coordinate_distance",
+      "default_formula_cost": 3.6055512754639896,
+      "manual_override": false
+    },
+    {
+      "source": "rm",
+      "target": "tr",
+      "edge_class": "known_corridor_or_room",
+      "cost": 3.6055512754639896,
+      "default_formula": "2.0 * euclidean_coordinate_distance",
+      "default_formula_cost": 3.6055512754639896,
+      "manual_override": false
+    },
+    {
+      "source": "rm",
+      "target": "br",
+      "edge_class": "known_corridor_or_room",
+      "cost": 3.687817782917155,
+      "default_formula": "2.0 * euclidean_coordinate_distance",
+      "default_formula_cost": 3.687817782917155,
+      "manual_override": false
+    },
+    {
+      "source": "rm",
+      "target": "fire",
+      "edge_class": "known_corridor_or_room",
+      "cost": 1.5,
+      "default_formula": "2.0 * euclidean_coordinate_distance",
+      "default_formula_cost": 1.5,
+      "manual_override": false
+    },
+    {
+      "source": "br",
+      "target": "s",
+      "edge_class": "known_corridor_or_room",
+      "cost": 4.866210024238576,
+      "default_formula": "2.0 * euclidean_coordinate_distance",
+      "default_formula_cost": 4.866210024238576,
+      "manual_override": false
+    },
+    {
+      "source": "br",
+      "target": "rm",
+      "edge_class": "known_corridor_or_room",
+      "cost": 3.687817782917155,
+      "default_formula": "2.0 * euclidean_coordinate_distance",
+      "default_formula_cost": 3.687817782917155,
+      "manual_override": false
+    },
+    {
+      "source": "ext",
+      "target": "lm",
+      "edge_class": "known_corridor_or_room",
+      "cost": 1.3601470508735445,
+      "default_formula": "2.0 * euclidean_coordinate_distance",
+      "default_formula_cost": 1.3601470508735445,
+      "manual_override": false
+    },
+    {
+      "source": "fire",
+      "target": "rm",
+      "edge_class": "known_corridor_or_room",
+      "cost": 1.5,
+      "default_formula": "2.0 * euclidean_coordinate_distance",
+      "default_formula_cost": 1.5,
+      "manual_override": false
+    },
+    {
+      "source": "d0",
+      "target": "s",
+      "edge_class": "closed_return",
+      "cost": 1.2,
+      "default_formula": "1.1 * euclidean_coordinate_distance",
+      "default_formula_cost": 1.595,
+      "manual_override": true
+    },
+    {
+      "source": "d0",
+      "target": "lm",
+      "edge_class": "open_only_shortcut",
+      "cost": 3.0,
+      "default_formula": "2.3 * euclidean_coordinate_distance",
+      "default_formula_cost": 3.0186130921335375,
+      "manual_override": true
+    },
+    {
+      "source": "d1",
+      "target": "lm",
+      "edge_class": "closed_return",
+      "cost": 1.8381852463775246,
+      "default_formula": "1.1 * euclidean_coordinate_distance",
+      "default_formula_cost": 1.8381852463775246,
+      "manual_override": false
+    },
+    {
+      "source": "d1",
+      "target": "tm",
+      "edge_class": "open_only_shortcut",
+      "cost": 3.505142650449479,
+      "default_formula": "2.3 * euclidean_coordinate_distance",
+      "default_formula_cost": 3.505142650449479,
+      "manual_override": false
+    },
+    {
+      "source": "d2",
+      "target": "tm",
+      "edge_class": "closed_return",
+      "cost": 1.6408077279193933,
+      "default_formula": "1.1 * euclidean_coordinate_distance",
+      "default_formula_cost": 1.6408077279193933,
+      "manual_override": false
+    },
+    {
+      "source": "d2",
+      "target": "rm",
+      "edge_class": "open_only_shortcut",
+      "cost": 4.117578171692674,
+      "default_formula": "2.3 * euclidean_coordinate_distance",
+      "default_formula_cost": 4.117578171692674,
+      "manual_override": false
+    },
+    {
+      "source": "d3",
+      "target": "s",
+      "edge_class": "closed_return",
+      "cost": 1.9692765168964974,
+      "default_formula": "1.1 * euclidean_coordinate_distance",
+      "default_formula_cost": 1.9692765168964974,
+      "manual_override": false
+    },
+    {
+      "source": "d3",
+      "target": "rm",
+      "edge_class": "open_only_shortcut",
+      "cost": 4.078854005722685,
+      "default_formula": "2.3 * euclidean_coordinate_distance",
+      "default_formula_cost": 4.078854005722685,
+      "manual_override": false
+    },
+    {
+      "source": "d4",
+      "target": "lt",
+      "edge_class": "closed_return",
+      "cost": 2.9745798022577916,
+      "default_formula": "1.1 * euclidean_coordinate_distance",
+      "default_formula_cost": 2.9745798022577916,
+      "manual_override": false
+    },
+    {
+      "source": "d4",
+      "target": "rm",
+      "edge_class": "open_only_shortcut",
+      "cost": 5.4049999999999985,
+      "default_formula": "2.3 * euclidean_coordinate_distance",
+      "default_formula_cost": 5.4049999999999985,
+      "manual_override": false
+    }
+  ],
+  "successor_patterns": [
+    {
+      "state": "s",
+      "patterns": [
+        [
+          "bl",
+          "br",
+          "d0",
+          "d3"
+        ]
+      ]
+    },
+    {
+      "state": "bl",
+      "patterns": [
+        [
+          "s",
+          "lm"
+        ]
+      ]
+    },
+    {
+      "state": "lm",
+      "patterns": [
+        [
+          "bl",
+          "lt",
+          "ext",
+          "d1"
+        ]
+      ]
+    },
+    {
+      "state": "lt",
+      "patterns": [
+        [
+          "lm",
+          "tm",
+          "d4"
+        ]
+      ]
+    },
+    {
+      "state": "tm",
+      "patterns": [
+        [
+          "lt",
+          "tr",
+          "d2"
+        ]
+      ]
+    },
+    {
+      "state": "tr",
+      "patterns": [
+        [
+          "tm",
+          "rm"
+        ]
+      ]
+    },
+    {
+      "state": "rm",
+      "patterns": [
+        [
+          "tr",
+          "br",
+          "fire"
+        ]
+      ]
+    },
+    {
+      "state": "br",
+      "patterns": [
+        [
+          "s",
+          "rm"
+        ]
+      ]
+    },
+    {
+      "state": "ext",
+      "patterns": [
+        [
+          "lm"
+        ]
+      ]
+    },
+    {
+      "state": "fire",
+      "patterns": [
+        [
+          "rm"
+        ]
+      ]
+    },
+    {
+      "state": "d0",
+      "patterns": [
+        [
+          "s"
+        ],
+        [
+          "s",
+          "lm"
+        ]
+      ]
+    },
+    {
+      "state": "d1",
+      "patterns": [
+        [
+          "lm"
+        ],
+        [
+          "lm",
+          "tm"
+        ]
+      ]
+    },
+    {
+      "state": "d2",
+      "patterns": [
+        [
+          "tm"
+        ],
+        [
+          "tm",
+          "rm"
+        ]
+      ]
+    },
+    {
+      "state": "d3",
+      "patterns": [
+        [
+          "s"
+        ],
+        [
+          "s",
+          "rm"
+        ]
+      ]
+    },
+    {
+      "state": "d4",
+      "patterns": [
+        [
+          "lt"
+        ],
+        [
+          "lt",
+          "rm"
+        ]
+      ]
+    }
+  ],
+  "uncertain_variables": [
+    {
+      "name": "d0",
+      "origin": "s",
+      "open_target": "lm",
+      "pattern_semantics": [
+        {
+          "index": 0,
+          "name": "closed",
+          "successors": [
+            "s"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "open",
+          "successors": [
+            "s",
+            "lm"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "d1",
+      "origin": "lm",
+      "open_target": "tm",
+      "pattern_semantics": [
+        {
+          "index": 0,
+          "name": "closed",
+          "successors": [
+            "lm"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "open",
+          "successors": [
+            "lm",
+            "tm"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "d2",
+      "origin": "tm",
+      "open_target": "rm",
+      "pattern_semantics": [
+        {
+          "index": 0,
+          "name": "closed",
+          "successors": [
+            "tm"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "open",
+          "successors": [
+            "tm",
+            "rm"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "d3",
+      "origin": "s",
+      "open_target": "rm",
+      "pattern_semantics": [
+        {
+          "index": 0,
+          "name": "closed",
+          "successors": [
+            "s"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "open",
+          "successors": [
+            "s",
+            "rm"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "d4",
+      "origin": "lt",
+      "open_target": "rm",
+      "pattern_semantics": [
+        {
+          "index": 0,
+          "name": "closed",
+          "successors": [
+            "lt"
+          ]
+        },
+        {
+          "index": 1,
+          "name": "open",
+          "successors": [
+            "lt",
+            "rm"
+          ]
+        }
+      ]
+    }
+  ],
+  "world_encoding": {
+    "variable_order": [
+      "d0",
+      "d1",
+      "d2",
+      "d3",
+      "d4"
+    ],
+    "closed_value": 0,
+    "open_value": 1,
+    "world_vector_length": 5,
+    "supported_world_count": 32
+  },
+  "prior": {
+    "type": "finite_mixture_of_product_categorical_factors",
+    "formula": "P(z)=0.55*prod_i(0.22^(1-z_i)*0.78^z_i)+0.45*prod_i(0.82^(1-z_i)*0.18^z_i)",
+    "components": [
+      {
+        "name": "normal_access",
+        "mixture_weight": 0.55,
+        "variable_probabilities": {
+          "d0": {
+            "closed_pattern_0": 0.22,
+            "open_pattern_1": 0.78
+          },
+          "d1": {
+            "closed_pattern_0": 0.22,
+            "open_pattern_1": 0.78
+          },
+          "d2": {
+            "closed_pattern_0": 0.22,
+            "open_pattern_1": 0.78
+          },
+          "d3": {
+            "closed_pattern_0": 0.22,
+            "open_pattern_1": 0.78
+          },
+          "d4": {
+            "closed_pattern_0": 0.22,
+            "open_pattern_1": 0.78
+          }
+        }
+      },
+      {
+        "name": "restricted_access",
+        "mixture_weight": 0.45,
+        "variable_probabilities": {
+          "d0": {
+            "closed_pattern_0": 0.82,
+            "open_pattern_1": 0.18
+          },
+          "d1": {
+            "closed_pattern_0": 0.82,
+            "open_pattern_1": 0.18
+          },
+          "d2": {
+            "closed_pattern_0": 0.82,
+            "open_pattern_1": 0.18
+          },
+          "d3": {
+            "closed_pattern_0": 0.82,
+            "open_pattern_1": 0.18
+          },
+          "d4": {
+            "closed_pattern_0": 0.82,
+            "open_pattern_1": 0.18
+          }
+        }
+      }
+    ]
+  },
+  "task": {
+    "name": "firefighting",
+    "formula_ascii": "(!fire U extinguisher) AND eventually fire",
+    "formula_latex": "(\\neg fire\\ \\mathsf{U}\\ extinguisher)\\wedge\\Diamond fire"
+  },
+  "dfa": {
+    "states": [
+      "q0",
+      "q1",
+      "qF",
+      "qD"
+    ],
+    "initial_state": "q0",
+    "accepting_states": [
+      "qF"
+    ],
+    "rejecting_sink_states": [
+      "qD"
+    ],
+    "label_classes": [
+      {
+        "name": "none",
+        "atomic_propositions": []
+      },
+      {
+        "name": "extinguisher",
+        "atomic_propositions": [
+          "extinguisher"
+        ]
+      },
+      {
+        "name": "fire",
+        "atomic_propositions": [
+          "fire"
+        ]
+      },
+      {
+        "name": "extinguisher_and_fire",
+        "atomic_propositions": [
+          "extinguisher",
+          "fire"
+        ]
+      }
+    ],
+    "transition_table": [
+      {
+        "from": "q0",
+        "label_class": "none",
+        "to": "q0"
+      },
+      {
+        "from": "q0",
+        "label_class": "extinguisher",
+        "to": "q1"
+      },
+      {
+        "from": "q0",
+        "label_class": "fire",
+        "to": "qD"
+      },
+      {
+        "from": "q0",
+        "label_class": "extinguisher_and_fire",
+        "to": "qF"
+      },
+      {
+        "from": "q1",
+        "label_class": "none",
+        "to": "q1"
+      },
+      {
+        "from": "q1",
+        "label_class": "extinguisher",
+        "to": "q1"
+      },
+      {
+        "from": "q1",
+        "label_class": "fire",
+        "to": "qF"
+      },
+      {
+        "from": "q1",
+        "label_class": "extinguisher_and_fire",
+        "to": "qF"
+      },
+      {
+        "from": "qF",
+        "label_class": "none",
+        "to": "qF"
+      },
+      {
+        "from": "qF",
+        "label_class": "extinguisher",
+        "to": "qF"
+      },
+      {
+        "from": "qF",
+        "label_class": "fire",
+        "to": "qF"
+      },
+      {
+        "from": "qF",
+        "label_class": "extinguisher_and_fire",
+        "to": "qF"
+      },
+      {
+        "from": "qD",
+        "label_class": "none",
+        "to": "qD"
+      },
+      {
+        "from": "qD",
+        "label_class": "extinguisher",
+        "to": "qD"
+      },
+      {
+        "from": "qD",
+        "label_class": "fire",
+        "to": "qD"
+      },
+      {
+        "from": "qD",
+        "label_class": "extinguisher_and_fire",
+        "to": "qD"
+      }
+    ]
+  },
+  "planning_and_evaluation": {
+    "nominal_horizon": 11,
+    "minimal_robust_rank": 9,
+    "planning_alphas": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      0.9
+    ],
+    "terminal_evaluation_alpha": 0.95,
+    "terminal_evaluation_statistic": "static_CVaR_of_terminal_regret",
+    "world_enumeration": "exact"
+  },
+  "reference_results_h11": [
+    {
+      "planning_alpha": 0.0,
+      "horizon": 11,
+      "supported_worlds": 32,
+      "dfa_states": 4,
+      "root_action": "d0",
+      "nested_dynamic_regret": 3.4119954133276593,
+      "exact_mean_cost": 25.492930410188293,
+      "exact_mean_regret": 3.4119954133276647,
+      "exact_static_cvar95_regret": 6.78291306211209,
+      "exact_worst_regret": 6.78291306211209,
+      "all_worlds_satisfied": true
+    },
+    {
+      "planning_alpha": 0.25,
+      "horizon": 11,
+      "supported_worlds": 32,
+      "dfa_states": 4,
+      "root_action": "d0",
+      "nested_dynamic_regret": 4.4873365208156955,
+      "exact_mean_cost": 25.492930410188293,
+      "exact_mean_regret": 3.4119954133276647,
+      "exact_static_cvar95_regret": 6.78291306211209,
+      "exact_worst_regret": 6.78291306211209,
+      "all_worlds_satisfied": true
+    },
+    {
+      "planning_alpha": 0.5,
+      "horizon": 11,
+      "supported_worlds": 32,
+      "dfa_states": 4,
+      "root_action": "d0",
+      "nested_dynamic_regret": 5.644776892872176,
+      "exact_mean_cost": 25.858152352276782,
+      "exact_mean_regret": 3.7772173554161546,
+      "exact_static_cvar95_regret": 6.406562630430727,
+      "exact_worst_regret": 6.406562630430727,
+      "all_worlds_satisfied": true
+    },
+    {
+      "planning_alpha": 0.75,
+      "horizon": 11,
+      "supported_worlds": 32,
+      "dfa_states": 4,
+      "root_action": "d0",
+      "nested_dynamic_regret": 6.135248827856607,
+      "exact_mean_cost": 25.858152352276782,
+      "exact_mean_regret": 3.7772173554161546,
+      "exact_static_cvar95_regret": 6.406562630430727,
+      "exact_worst_regret": 6.406562630430727,
+      "all_worlds_satisfied": true
+    },
+    {
+      "planning_alpha": 0.9,
+      "horizon": 11,
+      "supported_worlds": 32,
+      "dfa_states": 4,
+      "root_action": "bl",
+      "nested_dynamic_regret": 6.360811250144792,
+      "exact_mean_cost": 25.88281914833096,
+      "exact_mean_regret": 3.8018841514703317,
+      "exact_static_cvar95_regret": 6.360811250144799,
+      "exact_worst_regret": 6.360811250144799,
+      "all_worlds_satisfied": true
+    }
+  ]
+}

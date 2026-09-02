@@ -1,0 +1,5 @@
+family,m,worlds,explicit_posterior_mass_entries_median,factored_probability_entries_median,posterior_entry_reduction_x_median,explicit_posterior_states_median,factored_mode_states_median,factored_marginal_queries_median
+hub,8,256,2304,434,5.308755760368664,17,129,169
+hub,10,1024,11264,662,17.01510574018127,21,201,251
+layered,8,256,3840,453,9.39203354297694,113,113,272
+layered,10,1024,26112,1433,19.886767610269914,389,389,838

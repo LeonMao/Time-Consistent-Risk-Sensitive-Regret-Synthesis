@@ -1,0 +1,11 @@
+{
+  "title": "Time-Consistent Risk-Sensitive Regret Synthesis for Temporal-Logic Robot Planning in Partially Known Environments",
+  "venue_target": "Robotica",
+  "locked_on": "2026-09-01",
+  "source_filename": "Robotica_merged_manuscript.tex",
+  "source_sha256": "42C2A53156DA5A79C7D53B3F292EEDBC726264BF16CF993FEFDC328B16A9E20E",
+  "compiled_pdf_filename": "Robotica_merged_manuscript.pdf",
+  "compiled_pdf_sha256": "62FF36FEFA7ACE374894EA845BBFF351A4AD083BEE941029EA1B88B839F842B6",
+  "paper_included_in_release": false,
+  "note": "The manuscript is deliberately excluded. The hashes bind this package to the exact reviewed source and compiled PDF used to define the claims."
+}

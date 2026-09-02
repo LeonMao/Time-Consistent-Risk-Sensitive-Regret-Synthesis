@@ -1,0 +1,5 @@
+alpha,instances,behavior_disagreement_rate,root_disagreement_rate,disagreement_mean_prior_mass,delta_expected_regret_on_disagreement,delta_worst_cost_on_disagreement
+0.25,50,0.32,0.26,0.9033843208617556,-1.560164619158618,1.643354430533233
+0.5,50,0.2,0.18,0.9287709830511031,-5.8587756380169385,3.0026950402337307
+0.75,50,0.0,0.0,,,
+0.9,50,0.02,0.0,0.0655578148474951,-0.1589838471228014,0.1934308286704649

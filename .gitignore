@@ -1,0 +1,9 @@
+.venv/
+artifacts/
+reproduced_results/
+figure_reproduction/generated/
+__pycache__/
+*.py[cod]
+*.log
+*.tmp
+.DS_Store
