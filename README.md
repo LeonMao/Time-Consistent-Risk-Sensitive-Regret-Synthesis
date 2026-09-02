@@ -3,11 +3,7 @@
 This is the compact MIT-licensed code and evidence package for **Time-Consistent
 Risk-Sensitive Regret Synthesis for Temporal-Logic Robot Planning in Partially
 Known Environments**. It is designed to verify the paper's method,
-experiments, figures, and headline conclusions without distributing the
-manuscript, revision history, temporary outputs, or development workspaces.
-
-The exact manuscript source and PDF that define this release are identified by
-SHA-256 in `PAPER_VERSION.json`; neither manuscript file is included.
+experiments, figures, and headline conclusions.
 
 ## What is included
 
